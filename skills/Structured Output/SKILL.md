@@ -4,6 +4,9 @@ description: >
   Здесь прописано руководство по Structured Output.
   всегда юзай этот скилл в задачах со Structured Output, ИИ классификациях и когда требуется очень точный ответ.
 ---
+# ... 
+Руководство основано на результатах личных тестов моделей Gemini (gemini-2.5-flash-lite | gemini-2.5-flash | gemini-3-flash-preview)
+Другие модели могут бредить наверное.
 
 # БАЗА
 - json_object говно
@@ -29,7 +32,7 @@ SYSTEM_PROMPT= ("Тебя зовут боб, ты живёшь в телегра
     "type": "json_schema",
     "json_schema": {
         "name": "message_routing_logic",
-        "strict": True,
+        "strict": True,    # Должно гарантировать 100% следование схеме. НАВЕРНОЕ...
         "schema": {
             "type": "object",
             "properties": {
@@ -46,6 +49,8 @@ SYSTEM_PROMPT= ("Тебя зовут боб, ты живёшь в телегра
                 # 3. Вес
                 "confidence_score": {
                     "type": "integer",
+                    "minimum": 0,
+                    "maximum": 99,
                     "description": "Уровень уверенности, что обращаются к тебе (0-100)."
                 },
                 # 4. Итоговое решение
