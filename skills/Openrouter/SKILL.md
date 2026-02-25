@@ -100,3 +100,20 @@ response = requests.post(
 ```
 
 Видно ретраи, latency, провайдеров.
+
+# Errors и фильтр output
+
+- Если при генерации возникают ошибки - делаем ретраи (До 3х раз норм)
+- Важно ловить ошибки не только от Openrouter, но и ответы от самих провайдеров внутри message
+- Важно фильтровать ответ модели, если она возвращает ошибки, системный промпт, ключи, пароли и тд. По сходству/готовыми библеотеками/по энтропии (секреты длинные, случайные)/регексами.
+
+## Openrouter error Codes
+
+- 400: Bad Request (invalid or missing params, CORS)
+- 401: Invalid credentials (OAuth session expired, disabled/invalid API key)
+- 402: Your account or API key has insufficient credits. Add more credits and retry the request.
+- 403: Your chosen model requires moderation and your input was flagged
+- 408: Your request timed out
+- 429: You are being rate limited
+- 502: Your chosen model is down or we received an invalid response from it
+- 503: There is no available model provider that meets your routing requirements
