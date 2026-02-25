@@ -95,6 +95,8 @@ response = requests.post(
 Доп метаданные запроса можно достать зная gen id через эндпоинт "https://openrouter.ai/api/v1/generation?id=gen-1772030107-1FJRHH9DliPkfVmjcn64"
 Из интересного:
 
+```
 {"data":{"latency":1643,"moderation_latency":null,"generation_time":3881,"provider_responses":[{"endpoint_id":"ebdbef25-737d-4ac3-9e98-fd3928724e45","is_byok":false,"latency":327,"model_permaslug":"google/gemini-2.5-flash-lite","provider_name":"Google","status":429},{"endpoint_id":"ce839073-aa24-4f29-8358-15b319bd05ec","is_byok":false,"latency":1643,"model_permaslug":"google/gemini-2.5-flash-lite","provider_name":"Google AI Studio","status":200}],"api_type":"completions","id":"gen-1772030107-1FJRHH9DliPkfVmjcn64","upstream_id":null,"total_cost":0.0001402,"cache_discount":null,"upstream_inference_cost":0,"provider_name":"Google AI Studio"}}
+```
 
 Видно ретраи, latency, провайдеров.
